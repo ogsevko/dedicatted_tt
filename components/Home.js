@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  StyleSheet, View, Text, ScrollView,
+  StyleSheet, View, Text,
   Image, Platform, StatusBar, Button
 } from 'react-native';
 import Animated from 'react-native-reanimated';
@@ -81,6 +81,7 @@ export function Home({navigation}) {
         title="Go To Info"
         onPress={() => navigation.navigate("Info")}
       />
+      <StatusBar style="auto" />
     </View>
   );
 }
