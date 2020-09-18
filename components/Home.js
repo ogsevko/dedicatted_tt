@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   StyleSheet, View, Text, ScrollView,
-  Image, Platform, StatusBar
+  Image, Platform, StatusBar, Button
 } from 'react-native';
 import Animated from 'react-native-reanimated';
 
@@ -22,7 +22,7 @@ const images = [
 
 const HEADER_HEIGHT = Platform.OS === 'ios' ? 115 : 70;
 
-export function Home() {
+export function Home({navigation}) {
   const scrollY = new Animated.Value(0);
   const diffClampScrollY = Animated.diffClamp(scrollY, 0, HEADER_HEIGHT);
   const headerY = Animated.interpolate(diffClampScrollY, {
@@ -77,7 +77,10 @@ export function Home() {
           </View>
         ))}
       </Animated.ScrollView>
-      <StatusBar style="auto" />
+      <Button
+        title="Go To Info"
+        onPress={() => navigation.navigate("Info")}
+      />
     </View>
   );
 }
